@@ -1,5 +1,16 @@
 # Change Log
 
+## 5.25.0 (2026-05-07)
+
+### Features
+
+- Improved [`getEngineTrackingCode`][getenginetrackingcode] performance by caching experiment metadata for reuse across calls.
+
+### Patch Changes
+
+- Updated dependencies
+  - @kameleoon/javascript-sdk-core@5.24.0
+
 ## 5.24.0 (2026-05-05)
 
 ### Features
