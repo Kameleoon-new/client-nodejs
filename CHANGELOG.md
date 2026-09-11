@@ -1,5 +1,14 @@
 # Change Log
 
+## 5.27.1 (2026-09-11)
+
+### Patch Changes
+
+- Reduced the load on the Data API during its outages. After a failed tracking request, the SDK sends only one visitor's data per tracking request until a request succeeds, instead of retrying with a full-size (up to 2.5 MB) request on every tracking interval. Once the Data API is reachable again, the accumulated visitor data is sent in full-size requests as usual.
+- Reduced the load on the Automation API when access token requests fail. After a failed access token request (for example, during an outage or with invalid client credentials), the SDK does not request the token again for 5 minutes and sends the requests without an access token, instead of requesting the token again on every request. Concurrent requests now share one in-flight access token request instead of each requesting its own token. The access token is now refreshed in the background 30 minutes before it expires.
+- Updated dependencies
+  - @kameleoon/javascript-sdk-core@5.26.1
+
 ## 5.27.0 (2026-08-24)
 
 > [!CAUTION]
