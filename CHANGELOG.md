@@ -1,5 +1,19 @@
 # Change Log
 
+## 5.28.0 (2026-09-15)
+
+### Features
+
+- Added the new [`dataFileRefreshInterval`][configurationParameters] configuration parameter (in minutes, default `60`) as a more explicit replacement for `updateInterval`. When both are passed, `dataFileRefreshInterval` is used.
+- The [`updateInterval`][configurationParameters] configuration parameter has been deprecated in favor of `dataFileRefreshInterval` and will be removed in the next major version.
+
+[configurationParameters]: https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/nodejs-sdk/#configuration-parameters
+
+### Patch Changes
+
+- Updated dependencies
+  - @kameleoon/javascript-sdk-core@5.27.0
+
 ## 5.27.1 (2026-09-11)
 
 ### Patch Changes
