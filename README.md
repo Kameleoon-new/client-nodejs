@@ -136,7 +136,7 @@ class MyEventSource implements IExternalEventSource {
   private eventSource?: EventSource;
 
   public open({
-    eventType,
+    eventTypes,
     onEvent,
     url,
   }: EventSourceOpenParametersType): void {
@@ -144,12 +144,23 @@ class MyEventSource implements IExternalEventSource {
     const eventSource = new EventSource(url);
 
     this.eventSource = eventSource;
-    this.eventSource.addEventListener(eventType, onEvent);
+    eventTypes.forEach((eventType) => {
+      eventSource.addEventListener(eventType, onEvent);
+    });
   }
 
   public close(): void {
     if (this.eventSource) {
       this.eventSource.close();
+    }
+  }
+
+  // - Lets the SDK restore the connection or fall back to polling. Without it
+  //   the SDK keeps polling enabled alongside streaming; it will become
+  //   required in the next major version
+  public onError(callback: (error: Event) => void): void {
+    if (this.eventSource) {
+      this.eventSource.onerror = callback;
     }
   }
 }
