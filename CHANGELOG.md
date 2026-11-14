@@ -1,5 +1,15 @@
 # Change Log
 
+## 5.29.1 (2026-11-14)
+
+### Patch Changes
+
+- Fixed the `UserAgent` value being sent in tracking requests without URL encoding.
+- Fixed an older configuration being applied over a newer one when two configuration fetches (for example triggered by two streaming events in quick succession) resolve out of order.
+- A configuration fetch which fails while the SDK is in streaming mode (for example, the fetch triggered by a streaming event hits a transient network error) is now retried after one minute.
+- Updated dependencies
+  - @kameleoon/javascript-sdk-core@5.28.1
+
 ## 5.29.0 (2026-10-14)
 
 > [!WARNING]
