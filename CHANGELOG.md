@@ -1,5 +1,13 @@
 # Change Log
 
+## 5.29.2 (2026-11-19)
+
+### Patch Changes
+
+- Version strings in the application version and SDK language targeting conditions are now parsed the same way as in the other SDKs: pre-release and build metadata (for example `1.1.2-staging` or `1.1.2+45`) are ignored, and the version is normalized to `major.minor.patch`. Previously, some of these versions were rejected (for example `1.1.2-beta.rc`) or misread (`1.2-beta.1` as `1.2.1`).
+- Updated dependencies
+  - @kameleoon/javascript-sdk-core@5.28.2
+
 ## 5.29.1 (2026-11-14)
 
 ### Patch Changes
