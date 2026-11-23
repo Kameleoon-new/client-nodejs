@@ -1,5 +1,29 @@
 # Change Log
 
+## 5.30.0 (2026-11-23)
+
+### Features
+
+- Added the "greater than or equal to" (`>=`) and "less than or equal to" (`<=`) operators to the following targeting conditions:
+  - App version
+  - SDK type
+  - Browser
+  - Custom data (number)
+  - Number of page views
+  - Total number of visits
+  - Number of visits today
+  - Elapsed time since first visit
+  - Elapsed time since last visit
+
+  These operators will be available in the Kameleoon app with the platform release planned for December 2026.
+
+### Patch Changes
+
+- Fixed an exception thrown during targeting when the App version, SDK type, Browser, Cookie or New or returning visitors condition has an operator unknown to the SDK. An error is logged and the condition is evaluated as not met.
+- Fixed the Custom data condition with the `Among values` operator not matching the numbers and booleans of the list (for example, `[10, 12]` did not match the value `10`).
+- Updated dependencies
+  - @kameleoon/javascript-sdk-core@5.29.0
+
 ## 5.29.2 (2026-11-19)
 
 ### Patch Changes
