@@ -1,10 +1,20 @@
 # Change Log
 
+## 5.30.1 (2026-11-25)
+
+### Patch Changes
+
+- Fixed the data of a visitor being lost when the size limit of a tracking request was reached. A visitor is now always sent with all of its data, and the visitors after the limit is reached are sent with the next request. The limit is now 2MB per request, about three times more than before.
+- Fixed a `UserAgent` value which cannot be URL-encoded (for example, one cut in the middle of an emoji) stopping the tracking requests of all visitors. Such a value is now left out of the request.
+- Updated dependencies
+  - @kameleoon/javascript-sdk-core@5.30.0
+
 ## 5.30.0 (2026-11-23)
 
 ### Features
 
 - Added the "greater than or equal to" (`>=`) and "less than or equal to" (`<=`) operators to the following targeting conditions:
+
   - App version
   - SDK type
   - Browser
